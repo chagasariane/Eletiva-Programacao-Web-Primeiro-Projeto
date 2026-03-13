@@ -7,8 +7,9 @@ Para pc da Fatec:
 3. Executar no terminal do Laragon:  composer update
 4. Copiar e colar o arquivo .env.example e renomear para .env
 5. Executar o comando (no terminal): php artisan key:generate 
-6. Executar o comando (no terminal): php artisan migrate --> yes
-7. Executar o projeto (no terminal): php artisan serve
+6. Executar o comando (no terminal do laragon): php artisan migrate --> yes
+7. Roda o banco no Workbench
+7. Executar o projeto (no terminal do laragon): php artisan serve
 
 Passo a passo os exercícios:
 1. criar a view (resources/views) @section e @isset e formulário
