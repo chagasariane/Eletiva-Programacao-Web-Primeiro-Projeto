@@ -5,11 +5,12 @@ Para pc da Fatec:
 1. Startar o Laragon
 2. Clona repositório em C:\laragon\www
 3. Executar no terminal do Laragon:  composer update
-4. Copiar e colar o arquivo .env.example e renomear para .env
+4. Copiar e colar o arquivo .env.example e renomear para .env --> mas já tenho a .env pronta compactada, então descompactar
 5. Executar o comando (no terminal): php artisan key:generate 
 6. Executar o comando (no terminal do laragon): php artisan migrate --> yes
-7. Roda o banco no Workbench
-7. Executar o projeto (no terminal do laragon): php artisan serve
+7. Abrir o Workbench, deve aparecer o banco nos esquemas, clica duas vezes sobre ele
+8. Agora abra e rode o script SQL que está na pasta do projeto
+9. Executar o projeto (no terminal do laragon): php artisan serve
 
 Passo a passo os exercícios:
 1. criar a view (resources/views) @section e @isset e formulário
@@ -21,3 +22,9 @@ gerar formulario em https://vanessaborges2.github.io/Gerador-Formulario/ e coloc
 
 Para criar Model:
 php artisan make:model Categoria -c --resource
+php artisan make:model Produto -c --resource
+
+Produto.php
+ProdutoController.php
+
+Ordem para programar o sistema --> Model, Controller, Route e View

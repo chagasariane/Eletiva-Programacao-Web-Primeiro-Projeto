@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProdutoController;
 
 Route::get('/paginainicial', function () {
     return view('welcome');
@@ -20,3 +21,5 @@ Route::post('/resposta', function(Request $request) {
 });
 
 Route::resource('categorias', CategoriaController::class);
+
+Route::resource('produtos', ProdutoController::class);
