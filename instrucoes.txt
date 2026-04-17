@@ -28,3 +28,8 @@ Produto.php
 ProdutoController.php
 
 Ordem para programar o sistema --> Model, Controller, Route e View
+
+https://plantuml.com/ --> para criar diagramas
+
+110 a 120 - aula de login
+middleware 
