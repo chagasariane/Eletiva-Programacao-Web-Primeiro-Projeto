@@ -2,127 +2,127 @@
 
 @section('conteudo')
 
-
-{{-- resources/views/dashboard.blade.php --}}
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-
-    {{-- Bootstrap 5 --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    {{-- Chart.js (para gráficos mock) --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    <a class="navbar-brand" href="#">Dashboard</a>
-
-    <div class="ms-auto d-flex align-items-center">
-        <span class="text-white me-3">
-            Olá, {{ Auth::user()->name }}
-        </span>
-
-        <form method="POST" action="/logout">
-            @csrf
-            <button class="btn btn-danger btn-sm" type="submit">
-                Logout
-            </button>
-        </form>
-    </div>
-</nav>
-
-<div class="container mt-4">
-
     <div class="row">
-        {{-- Gráfico 1 --}}
-        <div class="col-md-6 mb-4">
-            <div class="card p-3">
-                <h5>Vendas Mensais</h5>
-                <canvas id="chart1"></canvas>
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Vendas</h5>
+                    <canvas id="chartVendas"></canvas>
+                </div>
             </div>
         </div>
 
-        {{-- Gráfico 2 --}}
-        <div class="col-md-6 mb-4">
-            <div class="card p-3">
-                <h5>Usuários Ativos</h5>
-                <canvas id="chart2"></canvas>
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Usuários</h5>
+                    <canvas id="chartUsuarios"></canvas>
+                </div>
             </div>
         </div>
 
-        {{-- Gráfico 3 --}}
-        <div class="col-md-6 mb-4">
-            <div class="card p-3">
-                <h5>Receita</h5>
-                <canvas id="chart3"></canvas>
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Receita</h5>
+                    <canvas id="chartReceita"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Linha inferior -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Crescimento</h5>
+                    <canvas id="chartLinha"></canvas>
+                </div>
             </div>
         </div>
 
-        {{-- Gráfico 4 --}}
-        <div class="col-md-6 mb-4">
-            <div class="card p-3">
-                <h5>Performance</h5>
-                <canvas id="chart4"></canvas>
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Distribuição</h5>
+                    <canvas id="chartPizza"></canvas>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Gráfico 1
-    new Chart(document.getElementById('chart1'), {
+    // Gráfico de barras - Vendas
+    new Chart(document.getElementById('chartVendas'), {
         type: 'bar',
         data: {
             labels: ['Jan', 'Fev', 'Mar', 'Abr'],
             datasets: [{
                 label: 'Vendas',
-                data: [10, 20, 30, 40]
+                data: [12, 19, 8, 15],
+                backgroundColor: '#0d6efd'
             }]
         }
     });
 
-    // Gráfico 2
-    new Chart(document.getElementById('chart2'), {
-        type: 'line',
+    // Gráfico de barras - Usuários
+    new Chart(document.getElementById('chartUsuarios'), {
+        type: 'bar',
         data: {
-            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+            labels: ['Jan', 'Fev', 'Mar', 'Abr'],
             datasets: [{
                 label: 'Usuários',
-                data: [5, 15, 10, 25]
+                data: [5, 10, 7, 14],
+                backgroundColor: '#198754'
             }]
         }
     });
 
-    // Gráfico 3
-    new Chart(document.getElementById('chart3'), {
+    // Gráfico de barras - Receita
+    new Chart(document.getElementById('chartReceita'), {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr'],
+            datasets: [{
+                label: 'Receita',
+                data: [1000, 2000, 1500, 2500],
+                backgroundColor: '#ffc107'
+            }]
+        }
+    });
+
+    // Gráfico de linha
+    new Chart(document.getElementById('chartLinha'), {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr'],
+            datasets: [{
+                label: 'Crescimento',
+                data: [3, 7, 4, 9],
+                borderColor: '#dc3545',
+                fill: false
+            }]
+        }
+    });
+
+    // Gráfico de pizza
+    new Chart(document.getElementById('chartPizza'), {
         type: 'pie',
         data: {
             labels: ['Produto A', 'Produto B', 'Produto C'],
             datasets: [{
-                data: [30, 50, 20]
-            }]
-        }
-    });
-
-    // Gráfico 4
-    new Chart(document.getElementById('chart4'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Meta', 'Realizado'],
-            datasets: [{
-                data: [70, 30]
+                data: [30, 50, 20],
+                backgroundColor: ['#0d6efd', '#198754', '#dc3545']
             }]
         }
     });
 </script>
-
-</body>
-</html>
-
 
 @endsection

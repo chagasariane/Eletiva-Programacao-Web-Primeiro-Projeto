@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    
     public function showLoginForm(){
         return view('login');
     }
@@ -16,10 +17,14 @@ class AuthController extends Controller
         if (Auth::attempt($credenciais)){
             $request->session()->regenerate();
             $user = Auth::user();
-            if($user->role)
-            return redirect()->intended('/dashboard');
+            if ($user->role == "ADM")
+                return redirect()->intended('/dashboard');
+            else 
+                return redirect()->intended('/dashboard-cli');
+        } else {
+            return back();
         }
-        return back();
+        
     }
 
     public function logout(Request $request){
@@ -28,4 +33,5 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
+
 }

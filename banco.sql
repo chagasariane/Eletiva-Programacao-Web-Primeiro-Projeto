@@ -11,11 +11,10 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role ENUM('ADM', 'CLI') NOT NULL DEFAULT 'CLI',
+	email_verified_at TIMESTAMP NULL,
+	remember_token VARCHAR(100) NULL,
     created_at TIMESTAMP NULL,
-    updated_at TIMESTAMP NULL.
-    --email_verified_at timestamp null; --> descomentar se der erro
-    --remember_token varchar(100) null; --> descomentar se der erro
-
+    updated_at TIMESTAMP NULL
 );
 
 

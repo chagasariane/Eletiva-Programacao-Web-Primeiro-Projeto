@@ -13,6 +13,14 @@
             <input type="text" id="descricao" name="descricao" class="form-control" required="">
         </div>
         <div class="mb-3">
+            <label for="preco" class="form-label">Informe o preço:</label>
+            <input type="text" id="preco" name="preco" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="estoque" class="form-label">Informe o estoque:</label>
+            <input type="text" id="estoque" name="estoque" class="form-control" required="">
+        </div>
+        <div class="mb-3">
             <label for="categoria_id" class="form-label">Selecione a categoria:</label>
             <select name="categoria_id" id="categoria_id" class="form-select" required>
                 @foreach ($categorias as $c)
@@ -21,15 +29,6 @@
                     </option>
                 @endforeach
             </select>
-        </div>
-        <div class="mb-3">
-            <label>Preço:</label>
-            <input type="number" step="0.01" name="preco" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label>Estoque:</label>
-            <input type="number" name="estoque" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
