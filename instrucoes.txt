@@ -33,3 +33,9 @@ https://plantuml.com/ --> para criar diagramas
 
 110 a 120 - aula de login
 middleware 
+
+Para o ptojeto:
+1.php artisan optimize:clear
+2.php artisan migrate:fresh --seed
+3.php artisan storage:link
+4.php artisan serve
